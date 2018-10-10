@@ -1,0 +1,133 @@
+.gerador-titulo {
+	background-color: #2a0b2a;
+	color : #D2D7D3;
+	display: block;
+	font-size: 60px;
+	font-family: 'Mali', sans-serif;
+	height: 140px;
+	line-height: 140px;
+	margin: 0;
+	text-align: center;	
+}
+.--obrigatorio {
+	color: #F22613 !important;
+}
+.--obrigatorio:not(label){
+	color: white !important;
+	background-color: #F22613 !important;
+	border: 1px solid #F22613 !important;
+}
+.clicavel {
+	color: #e6258c;
+}
+.clicavel:hover{
+	color: #F62459;
+	cursor: pointer;
+	text-decoration: none;
+}
+.gerador {
+	background-color: #2a0b2a;
+	display: block;
+	margin: 0;
+	padding: 25px 100px 100px;
+	width: 100%;
+}
+.gerador-info {
+	color : #D2D7D3;
+	display: block;	
+	font-family: 'Mali', sans-serif;	
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+.gerador-info .info,
+.gerador-info .lista-item {
+	border: 1px solid #D2D7D3;
+	color: black;
+	display: block;	
+	font-family: 'Roboto', sans-serif;	
+	font-size: 18px;	
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding: 5px 10px;
+	min-width: 100%;
+	max-width: 100%;
+}
+.lista-fluxo,
+.lista-links {
+	display: block;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	width: 100%;	
+}
+.lista-item {
+	color: black;
+	display: block;
+	margin-bottom: 5px;
+	min-width: 100%;
+	max-width: 100%;
+	padding: 5px 10px;
+}
+.lista-links {
+	list-style-type:none;
+}
+.exemplo-titulo {
+	color : #D2D7D3;
+	font-family: 'Mali', sans-serif;
+	font-size: 22px;
+	margin-bottom: 0;	
+}
+.exemplo-questionario {
+	border: 1px solid #D2D7D3;
+	padding: 20px;
+}
+
+.questao:not(.--avaliacao) {
+	display: block;	
+}
+.questao:not(.--avaliacao) .questao-pergunta {
+	display: block;
+	font-family: 'Mali', sans-serif;
+	font-size: 18px;
+	margin-right: 15px;
+}
+.questao:not(.--avaliacao) .questao-resposta {
+	color : black;
+	display: block;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	padding: 5px;
+	min-width: 100%;
+	max-width: 100%;
+}
+.questao.--avaliacao {
+	align-items: center;
+	display: flex;
+}
+.--avaliacao .questao-pergunta {
+	color : #D2D7D3;
+	font-family: 'Mali', sans-serif;
+	font-size: 18px;
+	margin-right: 15px;
+}
+.--avaliacao .questao-resposta {
+	color : black;
+	flex-grow: 1;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	padding: 5px;
+}
+.botao-cadastro {
+	color: white;
+	background-color: #e6258c;
+	font-size: 23px;
+	padding: 10px;
+	display: inline-block;
+	border: 2px solid #e6258c;
+	margin-top: 20px;
+	width: 400px;
+	float: right;
+}
+.botao-cadastro:hover {
+	background-color: #e958a5;
+	border-color: #e958a5;
+}

@@ -1,0 +1,152 @@
+.dinamica {
+	display: block;
+	margin: 0 auto;
+	width: 100%;			
+}
+.dinamica-titulo {
+	background-color: #2a0b2a;
+	color : #D2D7D3;
+	display: block;
+	font-size: 60px;
+	font-family: 'Mali', sans-serif;
+	height: 140px;
+	line-height: 140px;
+	margin: 0;
+	text-align: center;
+}
+.dinamica-resumo {
+	background-color: #2a0b2a;
+	display: flex;
+	justify-content: center;
+	padding: 0 6vw 30px;
+	width: 100%;
+}
+.resumo-info {
+	background-color: white;
+	border-radius: 20%;
+	color: white;
+	display: inline-block;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	height: 250px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	padding: 25px 15px;
+	text-align: center;
+	vertical-align: middle;
+	width: 250px;
+}
+.resumo-info.--par {
+	background-color: #e6258c;
+	color: #D2D7D3;
+}
+.resumo-info.--impar {
+    background-color: #FFBA00;		
+	color: black;
+}
+.resumo-info-titulo {
+	display: block;
+	font-family: 'Mali', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+.resumo-info-titulo .glyphicon {
+	vertical-align: top;		
+}
+.dinamica-fluxo_basico {
+	background-color: #e6258c;
+	padding: 50px 100px;
+}
+.fluxo_basico-titulo {
+	color: white;
+	font-family: 'Mali', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.dinamica-fluxo_basico ol li {
+	color: #D2D7D3;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	margin-bottom: 10px;
+	padding-right: 20px;
+	text-align: justify;
+}
+.dinamica-exemplo {
+	background-color: #FFBA00;
+	color: #757D75;
+	display: block;
+	padding: 50px 100px;
+}
+.exemplo-resumo {
+	display: block;
+	margin-bottom: 22px;
+	width: 100%;		
+}
+.exemplo-resumo-quem {
+	color: #2a0b2a;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	font-weight: bold;		
+}
+.exemplo-resumo-tempo {
+	color: #2a0b2a;
+	float: right;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	margin-top: 3px;
+	margin-right: 15px;
+}
+.exemplo-resumo-tempo .glyphicon {
+	vertical-align: text-top;
+}
+.exemplo-resumo-avaliacao {
+	font-size: 25px;
+	vertical-align: text-bottom;
+	margin-right: 15px;
+}
+.exemplo-resumo-avaliacao.--positiva {
+	color : #26A65B;
+	background: white;
+	border-radius: 100%;
+}
+.exemplo-resumo-avaliacao.--neutra {
+	color : #A17917;
+}
+.exemplo-resumo-avaliacao.--negativa {
+	color : #F22613;
+}
+.exemplo-descricao {
+	color: #2a0b2a;
+	display: block;
+	padding: 0 20px;
+}
+.exemplo-descricao-info {
+	display: block;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	margin-bottom: 15px;
+	text-align: justify;
+}
+.descricao-info-titulo {
+	color: #2a0b2a;
+	font-family: 'Mali', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;		
+}
+.dinamica-referencias {
+	background-color: #2a0b2a;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	padding: 50px 100px;
+}
+.dinamica-referencias-titulo {
+	font-family: 'Mali', sans-serif;
+	font-size: 18px;
+	margin: 0 0 15px 0;
+	vertical-align: text-top;
+}
