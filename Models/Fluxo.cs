@@ -4,11 +4,12 @@ namespace dinamicasAgile.Models
 {
     public class Fluxo
     {
-        public IList<string> Passos { get; set; }
+        public int Id { get; set; }
+        public IList<Passo> Passos { get; set; }
 
         public Fluxo()
         {
-            this.Passos = new List<string>();
+            this.Passos = new List<Passo>();
         }
     }
 }
