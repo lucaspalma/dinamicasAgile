@@ -62,15 +62,18 @@
 			Referências úteis
 			(<a onclick="addLink()" class="clicavel">Adicionar mais uma referencia</a>)
 			<ul class="lista-links">
-				@{ int indexRef = 0; }
-				@do
-				{
+				@if(Model != null && Model.Referencias.Count() > 0) {
+					@for(int indexRef = 0; indexRef < Model.Referencias.Count(); indexRef++) {
+						<li class="validado">
+							<input asp-for="Referencias[indexRef].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="@indexRef">
+							<span asp-validation-for="Referencias[indexRef].Descricao"></span>
+						</li>
+					}
+				} else {
 					<li class="validado">
-						<input asp-for="Referencias[indexRef].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="@indexRef">
-						<span asp-validation-for="Referencias[indexRef].Descricao"></span>
+						<input name="Referencias[0].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="0">
 					</li>
-					indexRef++;
-				} while(Model != null && indexRef < Model.Referencias.Count());
+				}
 			</ul>
 		</label>
 		<fieldset class="exemplo">
