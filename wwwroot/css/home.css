@@ -54,10 +54,11 @@
 }
 .dinamica-titulo {
     color : #D2D7D3;
-    display: inline-block   ;
+    display: inline-block ;
 	font-size: 26px;
     font-family: 'Mali', sans-serif;
     margin-bottom: 10px;
+    max-width: 50%;
 }
 
 .dinamica-info,
@@ -71,6 +72,7 @@
 .--duracao {
     float: right;
     font-size: 14px;
+    max-width: 25%;
 }
 .--tipo .dinamica-info-titulo,
 .--duracao .dinamica-info-titulo {
@@ -82,10 +84,90 @@
 .dinamica-titulo,
 .--tipo,
 .--duracao {
-    height: 30px;
+    min-height: 30px;
     line-height: 30px;
 }
 
 .--proposito_titulo {
     margin-bottom: 6px;
+}
+
+@media only screen and (max-width: 1240px) {
+    .dinamica-titulo {
+        font-size: 20px;
+    }
+    .dinamica-info,
+    .dinamica-info .dinamica-info-titulo {
+        font-size: 10px;
+    }
+
+    .--proposito {
+        font-size: 14px;    
+    }
+}
+
+@media only screen and (max-width: 980px) {
+
+    .dinamica-titulo {
+        display: block;
+        max-width: 100%;
+        text-align: center;
+        width: 100%;
+    }
+
+    .--tipo,
+    .--duracao {
+        float: left;
+        max-width: 49.7%;
+        width: 49%;
+        text-align: center;
+    }
+    .dinamica-info .dinamica-info-titulo {
+        margin: 0;
+    }
+
+    .dinamica-info,
+    .dinamica-info .dinamica-info-titulo {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+
+    .lista-dinamicas {
+        padding: 45px 50px;
+    }
+    .--tipo,
+    .--duracao,
+    .--proposito_titulo {
+        display: block;
+        float: none;
+        margin-bottom: 10px;
+        max-width: 100%;
+        text-align: left;
+        width: 100%;
+    }
+
+    .dinamica {
+        padding: 9px 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .dinamica-titulo {
+        font-size: 16px;
+    }
+    .dinamica-info,
+    .dinamica-info .dinamica-info-titulo {
+        font-size: 10px;
+    }
+
+    .--proposito {
+        font-size: 12px;    
+    }
+    .--tipo,
+    .--duracao,
+    .--proposito_titulo {
+        margin-bottom: 5px;
+    }
 }
