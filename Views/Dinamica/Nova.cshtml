@@ -16,15 +16,18 @@
 		<label asp-for="Resumo.Titulo" class="gerador-info">
 			Título da dinâmica *
 			<input asp-for="Resumo.Titulo" placeholder="Título da dinâmica" class="info">
+			<span asp-validation-for="Resumo.Titulo"></span>
 		</label>
 		<label asp-for="Resumo.Tipo" class="gerador-info">
 			Tipo *
 			<input asp-for="Resumo.Tipo" placeholder="Tipo" class="info" >
+			<span asp-validation-for="Resumo.Tipo"></span>
 		</label>
 		
 		<label asp-for="Resumo.Proposito" class="gerador-info">
 			Propósito *
 			<textarea asp-for="Resumo.Proposito" placeholder="Propósito" rows="5" class="info"></textarea>
+			<span asp-validation-for="Resumo.Proposito"></span>
 		</label>
 		<label asp-for="Resumo.Duracao" class="gerador-info">
 			Duração *
@@ -34,27 +37,41 @@
 				<option value="Demorada">Na casa dos dias</option>
 				<option value="Ferrou">Essa demora bastante</option>
 			</select>
+			<span asp-validation-for="Resumo.Duracao"></span>
 		</label>
 		<label asp-for="Resumo.Material" class="gerador-info">
 			Material *
 			<textarea asp-for="Resumo.Material" placeholder="Material" rows="3" class="info"></textarea>
+			<span asp-validation-for="Resumo.Material"></span>
 		</label>
 		<label class="gerador-info">
 			Fluxo
 			(<a onclick="addPasso()" class="clicavel">Adicionar mais um passo</a>)
 			<ol class="lista-fluxo">
-				<li >
-					<textarea asp-for="Fluxo.Passos[0].Descricao" placeholder="Descreva o próximo passo" class="lista-item" rows="1" data-posicao="0"></textarea>
-				</li>
+				@{ int indexPasso = 0; }
+				@do
+				{
+					<li>
+						<textarea asp-for="Fluxo.Passos[indexPasso].Descricao" placeholder="Descreva o próximo passo" class="lista-item" rows="1" data-posicao="@indexPasso"></textarea>
+						<span asp-validation-for="Fluxo.Passos[indexPasso].Descricao"></span>
+					</li>
+					indexPasso++;
+				} while(Model != null && indexPasso < Model.Fluxo.Passos.Count());
 			</ol>
 		</label>
 		<label class="gerador-info">
 			Referências úteis
 			(<a onclick="addLink()" class="clicavel">Adicionar mais uma referencia</a>)
 			<ul class="lista-links">
-				<li>
-					<input asp-for="Referencias[0].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="0">
-				</li>
+				@{ int indexRef = 0; }
+				@do
+				{
+					<li>
+						<input asp-for="Referencias[indexRef].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="@indexRef">
+						<span asp-validation-for="Referencias[indexRef].Descricao"></span>
+					</li>
+					indexRef++;
+				} while(Model != null && indexRef < Model.Referencias.Count());
 			</ul>
 		</label>
 		<fieldset class="exemplo">
@@ -67,30 +84,37 @@
 						<option value="neutra">Mais ou menos, mais ou menos</option>
 						<option value="negativa">Vixe, deu muito ruim</option>
 					</select>
+					<span asp-validation-for="Exemplos[0].Avaliacao"></span>
 				</label>
 				<label asp-for="Exemplos[0].Participante" class="questao">
 					<span class="questao-pergunta">Quem facilitou a dinâmica? E qual time que participou?*</span>
 					<input asp-for="Exemplos[0].Participante" class="info questao-resposta">
+					<span asp-validation-for="Exemplos[0].Participante"></span>
 				</label>
 				<label asp-for="Exemplos[0].Tempo" class="questao">
 					<span class="questao-pergunta">Quanto tempo levou?*</span>
 					<input asp-for="Exemplos[0].Tempo" class="info questao-resposta">
+					<span asp-validation-for="Exemplos[0].Tempo"></span>
 				</label>
 				<label asp-for="Exemplos[0].Contexto" class="questao">
 					<span class="questao-pergunta">Quais os contextos e características do time em que esta dinâmica foi aplicada?*</span>
 					<textarea asp-for="Exemplos[0].Contexto" class="info questao-resposta"></textarea>
+					<span asp-validation-for="Exemplos[0].Contexto"></span>
 				</label>
 				<label asp-for="Exemplos[0].Motivo" class="questao">
 					<span class="questao-pergunta">Qual a razão pela qual você usou desta dinâmica?*</span>
 					<textarea asp-for="Exemplos[0].Motivo" class="info questao-resposta"></textarea>
+					<span asp-validation-for="Exemplos[0].Motivo"></span>
 				</label>
 				<label asp-for="Exemplos[0].Metrica" class="questao">
 					<span class="questao-pergunta">Como que você verificou o impacto desta dinâmica no time?</span>
 					<textarea asp-for="Exemplos[0].Metrica" class="info questao-resposta"></textarea>
+					<span asp-validation-for="Exemplos[0].Metrica"></span>
 				</label>
 				<label asp-for="Exemplos[0].Observacao" class="questao">
 					<span class="questao-pergunta">Coloque aqui alguma observação de algo que você ache relevante</span>
 					<textarea asp-for="Exemplos[0].Observacao" class="info questao-resposta"></textarea>
+					<span asp-validation-for="Exemplos[0].Observacao"></span>
 				</label>
 			</div>
 		</fieldset>

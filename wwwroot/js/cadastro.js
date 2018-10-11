@@ -1,3 +1,22 @@
+const formulario = document.querySelector(".gerador")
+formulario.addEventListener("submit", () => {
+	let index = 0
+	document.querySelectorAll(".lista-links .lista-item").forEach(item => {
+		console.log(item)
+		if(item.value == "") {
+			item.remove();
+		}
+		else {
+			const inicioPosicao = item.name.indexOf("[")
+			const fimPosicao = item.name.indexOf("]")
+			const posicao = item.name.substring(inicioPosicao, fimPosicao + 1)
+			item.name = item.name.replace(posicao, `[${index}]`)
+			index++
+		}
+	})
+	return true
+})
+
 function addPasso() {
 	const fluxo = document.querySelector(".gerador .lista-fluxo")
 	const listaDePassos = fluxo.querySelectorAll(".lista-item")

@@ -21,7 +21,10 @@ namespace dinamicasAgile.Controllers
 
         [HttpPost]
         public IActionResult Nova(Dinamica dinamica) {
-            dinamicaDao.Salva(dinamica);
+            if(ModelState.IsValid) {
+                dinamicaDao.Salva(dinamica);
+                return RedirectToAction("Index", "Home");
+            }
             return View(dinamica);
         }
 

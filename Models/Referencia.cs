@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace dinamicasAgile.Models
 {
     public class Referencia
