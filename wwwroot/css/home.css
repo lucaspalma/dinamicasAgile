@@ -1,0 +1,90 @@
+.cadastro {
+    color: white;
+    display: block;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    width: 170px;
+}
+
+.cadastro:hover,
+.cadastro:focus {
+    text-decoration: none;
+}
+
+.cadastro:hover {
+    color: #ABB7B7;
+}
+
+.cadastro-icone {
+    margin-right: 6px;
+    vertical-align: text-top;
+}
+
+.lista-dinamicas {
+    background-color: #2a0b2a;
+    display: block;
+	margin: 0;
+	padding: 45px 100px;
+    width: 100%;
+}
+
+.dinamica {
+    border: 3px solid #D2D7D3;
+    border-radius: 2px;
+    color: #D2D7D3;
+    display: block;
+    margin-bottom: 35px;
+    padding: 18px 30px;
+    width: 100%;
+    text-decoration: none;
+}
+
+.dinamica:hover,
+.dinamica:focus {
+    color: #D2D7D3;
+    text-decoration: none;
+}
+
+.dinamica:hover {
+    background-color: #5D3F6A;
+}
+.dinamica-titulo {
+    color : #D2D7D3;
+    display: inline-block   ;
+	font-size: 26px;
+    font-family: 'Mali', sans-serif;
+    margin-bottom: 10px;
+}
+
+.dinamica-info,
+.dinamica-info-titulo {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.--tipo,
+.--duracao {
+    float: right;
+    font-size: 14px;
+}
+.--tipo .dinamica-info-titulo,
+.--duracao .dinamica-info-titulo {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+.dinamica-titulo,
+.--tipo,
+.--duracao {
+    height: 30px;
+    line-height: 30px;
+}
+
+.--proposito_titulo {
+    margin-bottom: 6px;
+}

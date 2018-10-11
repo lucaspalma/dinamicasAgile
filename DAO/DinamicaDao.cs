@@ -1,6 +1,10 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using dinamicasAgile.Banco;
 using dinamicasAgile.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace dinamicasAgile.DAO
 {
@@ -21,6 +25,11 @@ namespace dinamicasAgile.DAO
         public Dinamica BuscaPorId(int id)
         {
             return contexto.Dinamicas.Find(id);
+        }
+
+        public IList<Dinamica> BuscaTodasApenasComInfosBasicas()
+        {
+            return contexto.Dinamicas.Include(d => d.Resumo).ToList();
         }
     }
 }
