@@ -23,7 +23,7 @@ namespace dinamicasAgile.Controllers
         public IActionResult Nova(Dinamica dinamica) {
             if(ModelState.IsValid) {
                 dinamicaDao.Salva(dinamica);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Visualiza", new {id = dinamica.Id});
             }
             return View(dinamica);
         }
