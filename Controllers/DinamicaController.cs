@@ -28,5 +28,10 @@ namespace dinamicasAgile.Controllers
             return View(dinamica);
         }
 
+        [HttpGet]
+        public IActionResult Visualiza(int id) {
+            return View(dinamicaDao.BuscaPorId(id));
+        }
+
     }
 }

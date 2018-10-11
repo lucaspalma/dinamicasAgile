@@ -35,7 +35,7 @@ namespace dinamicasAgile
             });
 
             services.AddDbContext<DinamicaContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+                    options.UseLazyLoadingProxies().UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<DinamicaDao>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

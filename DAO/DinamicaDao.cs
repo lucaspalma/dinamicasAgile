@@ -1,3 +1,4 @@
+using System;
 using dinamicasAgile.Banco;
 using dinamicasAgile.Models;
 
@@ -15,6 +16,11 @@ namespace dinamicasAgile.DAO
         public void Salva(Dinamica dinamica) {
             contexto.Dinamicas.Add(dinamica);
             contexto.SaveChanges();
+        }
+
+        public Dinamica BuscaPorId(int id)
+        {
+            return contexto.Dinamicas.Find(id);
         }
     }
 }

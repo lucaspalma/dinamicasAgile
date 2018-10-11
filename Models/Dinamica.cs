@@ -8,16 +8,16 @@ namespace dinamicasAgile.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage="O resumo é obtigatório")]
-        public InformacoesBasicas Resumo { get; set; }
+        public virtual InformacoesBasicas Resumo { get; set; }
 
         [Required(ErrorMessage="O fluxo é obrigatório")]
-        public Fluxo Fluxo { get; set; }
+        public virtual Fluxo Fluxo { get; set; }
 
         [Required(ErrorMessage="O exemplo é obrigatório")]
         [MinLength(1, ErrorMessage="Precisa de pelo menos {1} exemplo(s)")]
-        public IList<Exemplo> Exemplos { get; set; }
+        public virtual IList<Exemplo> Exemplos { get; set; }
 
-        public IList<Referencia> Referencias { get; set; }
+        public virtual IList<Referencia> Referencias { get; set; }
 
         public Dinamica()
         {

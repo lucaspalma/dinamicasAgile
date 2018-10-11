@@ -9,7 +9,7 @@ namespace dinamicasAgile.Models
 
         [Required(ErrorMessage="Os passos são obrigatórios")]
         [MinLength(1, ErrorMessage="O fluxo precisa ter pelo menos {1} passo")]
-        public IList<Passo> Passos { get; set; }
+        public virtual IList<Passo> Passos { get; set; }
 
         public Fluxo()
         {
