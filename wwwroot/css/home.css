@@ -27,6 +27,7 @@
     background-color: #2a0b2a;
     display: block;
 	margin: 0;
+    min-height: 100vh;
 	padding: 45px 100px;
     width: 100%;
 }
