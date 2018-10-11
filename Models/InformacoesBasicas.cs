@@ -6,20 +6,20 @@ namespace dinamicasAgile.Models
     {
         public int Id { get; set; }
         
-        [Required]
-        [MinLength(2)]
+        [Required(ErrorMessage="O título da dinâmica é obrigatório")]
+        [MinLength(2, ErrorMessage="O título precisa conter pelo menos {1} caracteres")]
         public string Titulo { get; set; }
 
         public string Material { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="A duração é obrigatória")]
         public string Duracao { get; set; }
         
-        [Required]
-        [MinLength(2)]
+        [Required(ErrorMessage="O propósito é obrigatório")]
+        [MinLength(2, ErrorMessage="O propósito precisa conter pelo menos {1} caracteres")]
         public string Proposito { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="O tipo é obrigatório")]
         public string Tipo { get; set; }
     }
 }

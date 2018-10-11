@@ -6,7 +6,7 @@ namespace dinamicasAgile.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Preencha esse passo do fluxo")]
         public string Descricao { get; set; }
     }
 }
