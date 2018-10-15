@@ -27,6 +27,7 @@ li.--erro {
 }
 .clicavel {
 	color: #e6258c;
+	margin-left: 10px;
 }
 .clicavel:hover{
 	color: #F62459;
@@ -138,4 +139,92 @@ li.--erro {
 .botao-cadastro:hover {
 	background-color: #e958a5;
 	border-color: #e958a5;
+}
+
+@media only screen and (max-width: 980px) {
+
+
+	.gerador-titulo {
+		font-size: 30px;
+		height: 50px;
+		line-height: 50px;
+	}
+
+}
+
+@media only screen and (max-width: 600px) {
+
+	.gerador {
+		padding: 45px 50px;
+	}
+
+	.gerador-titulo {
+		font-size: 16px;
+		height: 50px;
+		line-height: 50px;
+	}
+
+	.gerador-info {
+		font-size: 12px;
+		margin-top: 10px;
+	}
+
+	.gerador-info .info,
+	.gerador-info .lista-item {
+		font-size: 12px;
+		padding: 3px 6px;
+	}
+
+	.gerador-info .lista-fluxo .lista-item {
+		height: 100px;;
+	}
+
+	.field-validation-error {
+		font-size: 8px;
+	}
+
+	.clicavel {
+		margin-left: 5px;
+	}
+
+	.clicavel-texto {
+		display: none;
+	}
+
+	.exemplo .exemplo-titulo{
+		font-size: 14px;
+	}
+
+	.exemplo-questionario {
+		padding: 10px;
+	}
+	.exemplo-questionario .questao.--avaliacao {
+		display: block;
+	}
+
+	.exemplo-questionario .questao {
+		margin-bottom: 12px;
+	}
+
+	.exemplo-questionario .questao .questao-pergunta {
+		display: block;
+		font-size: 12px;
+	} 
+
+	.exemplo-questionario .questao .questao-resposta {
+		font-size: 12px;
+		padding: 0px;
+		width: 100%;
+	}
+
+	.exemplo-questionario .questao textarea.questao-resposta {
+		height: 100px;
+	}
+
+	.botao-cadastro {
+		float: none;
+		font-size: 16px;
+		padding: 7px;
+		width: 100%;
+	}
 }

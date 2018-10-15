@@ -3,6 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
@@ -45,7 +46,10 @@
 		</label>
 		<label class="gerador-info">
 			Fluxo
-			(<a onclick="addPasso()" class="clicavel">Adicionar mais um passo</a>)
+			<a onclick="addPasso()" class="clicavel">
+				<span class="clicavel-icone glyphicon glyphicon-plus-sign"></span>
+				<span class="clicavel-texto">Adicionar passo</span>
+			</a>
 			<ol class="lista-fluxo">
 				@{ int indexPasso = 0; }
 				@do
@@ -60,7 +64,10 @@
 		</label>
 		<label class="gerador-info">
 			Referências úteis
-			(<a onclick="addLink()" class="clicavel">Adicionar mais uma referencia</a>)
+			<a onclick="addLink()" class="clicavel">
+				<span class="clicavel-icone glyphicon glyphicon-plus-sign"></span>
+				<span class="clicavel-texto">Adicionar referencia</span>
+			</a>
 			<ul class="lista-links">
 				@if(Model != null && Model.Referencias.Count() > 0) {
 					@for(int indexRef = 0; indexRef < Model.Referencias.Count(); indexRef++) {
