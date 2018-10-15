@@ -50,7 +50,7 @@ li.--erro {
 }
 .gerador-info .info,
 .gerador-info .lista-item {
-	border: 1px solid #D2D7D3;
+	
 	color: black;
 	display: block;	
 	font-family: 'Roboto', sans-serif;	
@@ -155,7 +155,7 @@ li.--erro {
 @media only screen and (max-width: 600px) {
 
 	.gerador {
-		padding: 45px 50px;
+		padding: 20px 25px;
 	}
 
 	.gerador-titulo {
@@ -180,7 +180,7 @@ li.--erro {
 	}
 
 	.field-validation-error {
-		font-size: 8px;
+		font-size: 9px;
 	}
 
 	.clicavel {
@@ -203,7 +203,7 @@ li.--erro {
 	}
 
 	.exemplo-questionario .questao {
-		margin-bottom: 12px;
+		margin-bottom: 15px;
 	}
 
 	.exemplo-questionario .questao .questao-pergunta {
