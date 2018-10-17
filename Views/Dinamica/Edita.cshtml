@@ -12,8 +12,10 @@
 	<link href="~/css/formulario.css" rel="stylesheet">
 </head>
 <body>
-	<form asp-controller="Dinamica" asp-action="Nova" method="post" class="gerador">
+	<form asp-controller="Dinamica" asp-action="Edita" method="post" class="gerador">
+		<input type="hidden" asp-for="Id">
 		<h1 class="gerador-titulo">Divulgue a sua dinâmica</h1>
+		<input type="hidden" asp-for="Resumo.Id">
 		<label asp-for="Resumo.Titulo" class="gerador-info validado" >
 			Título da dinâmica *
 			<input asp-for="Resumo.Titulo" placeholder="Título da dinâmica" class="info">
@@ -46,6 +48,7 @@
 		</label>
 		<label class="gerador-info">
 			Fluxo
+			<input type="hidden" asp-for="Fluxo.Id">
 			<a onclick="addPasso()" class="clicavel">
 				<span class="clicavel-icone glyphicon glyphicon-plus-sign"></span>
 				<span class="clicavel-texto">Adicionar passo</span>
@@ -55,6 +58,7 @@
 				@do
 				{
 					<li class="validado">
+						<input type="hidden" asp-for="Fluxo.Passos[indexPasso].Id">
 						<textarea asp-for="Fluxo.Passos[indexPasso].Descricao" placeholder="Descreva o próximo passo" class="lista-item" rows="1" data-posicao="@indexPasso"></textarea>
 						<span asp-validation-for="Fluxo.Passos[indexPasso].Descricao"></span>
 					</li>
@@ -72,6 +76,7 @@
 				@if(Model != null && Model.Referencias.Count() > 0) {
 					@for(int indexRef = 0; indexRef < Model.Referencias.Count(); indexRef++) {
 						<li class="validado">
+							<input type="hidden" asp-for="Referencias[indexRef].Id">
 							<input asp-for="Referencias[indexRef].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="@indexRef">
 							<span asp-validation-for="Referencias[indexRef].Descricao"></span>
 						</li>
@@ -84,6 +89,7 @@
 			</ul>
 		</label>
 		<fieldset class="exemplo">
+			<input type="hidden" asp-for="Exemplos[0].Id">
 			<legend class="exemplo-titulo">Exemplo</legend>
 			<div class="exemplo-questionario">
 				<label asp-for="Exemplos[0].Avaliacao" class="questao --avaliacao validado">
