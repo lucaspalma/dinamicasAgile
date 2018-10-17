@@ -33,5 +33,19 @@ namespace dinamicasAgile.Controllers
             return View(dinamicaDao.BuscaPorId(id));
         }
 
+        [HttpGet]
+        public IActionResult Edita(int id) {
+            return View(dinamicaDao.BuscaPorId(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edita(Dinamica dinamica) {
+            if(ModelState.IsValid) {
+                dinamicaDao.Edita(dinamica);
+                return RedirectToAction("Visualiza", new {id = dinamica.Id});
+            }
+            return View(dinamica);
+        }
+
     }
 }

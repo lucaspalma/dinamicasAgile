@@ -14,6 +14,22 @@
 	margin: 0;
 	text-align: center;
 }
+.dinamica-editar {
+	color: #D2D7D3;
+	font-size: 35px;
+	position: absolute;
+	right: 100px;
+	top: 25px;
+}
+
+.dinamica-editar:hover,
+.dinamica-editar:focus {
+    text-decoration: none;
+}
+
+.dinamica-editar:hover {
+    color: #ABB7B7;
+}
 .dinamica-resumo {
 	background-color: #2a0b2a;
 	display: flex;
@@ -152,7 +168,17 @@
 	vertical-align: text-top;
 }
 
+@media only screen and (max-width: 710px) {
+	.dinamica-editar {
+		font-size: 25px;
+		right: 50px;
+	}
+}
 @media only screen and (max-width: 600px) {
+	.dinamica-editar {
+		font-size: 20px;
+		right: 25px;
+	}
    .dinamica-titulo {
 		font-size: 25px;
 		height: 100px;

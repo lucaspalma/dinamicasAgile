@@ -31,5 +31,11 @@ namespace dinamicasAgile.DAO
         {
             return contexto.Dinamicas.Include(d => d.Resumo).ToList();
         }
+
+        public void Edita(Dinamica dinamica)
+        {
+            contexto.Dinamicas.Update(dinamica);
+            contexto.SaveChanges();
+        }
     }
 }

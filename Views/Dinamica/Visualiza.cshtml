@@ -12,6 +12,7 @@
 </head>
 <body>
 	<div class="dinamica">
+		<a asp-action="Edita" asp-controller="Dinamica" asp-route-id="@Model.Id" class="glyphicon glyphicon-edit dinamica-editar" title="Editar"></a>
 		<h1 class="dinamica-titulo" data-campo="titulo">
             @Model.Resumo.Titulo
 		</h1>
