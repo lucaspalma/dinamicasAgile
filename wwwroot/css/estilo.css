@@ -9,8 +9,8 @@
 	display: block;
 	font-size: 60px;
 	font-family: 'Mali', sans-serif;
-	height: 140px;
-	line-height: 140px;
+	height: 200px;
+	line-height: 230px;
 	margin: 0;
 	text-align: center;
 }
@@ -24,6 +24,7 @@
 .dinamica-arquivar {
 	color: #D2D7D3;
 	font-size: 35px;
+	margin-left: 30px;
 }
 
 .dinamica-editar:hover,
@@ -179,17 +180,13 @@
 	.dinamica-acoes {
 		right: 50px;
 	}
-	.dinamica-editar,
-	.dinamica-arquivar {
-		font-size: 20px;
-	}
 }
 @media only screen and (max-width: 600px) {
 	.dinamica-acoes {
 		right: 25px;
 		top: 10px;
 	}
-	.dinamica-editar
+	.dinamica-editar,
 	.dinamica-arquivar {
 		font-size: 20px;
 	}
