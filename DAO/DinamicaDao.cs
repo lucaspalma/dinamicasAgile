@@ -29,12 +29,19 @@ namespace dinamicasAgile.DAO
 
         public IList<Dinamica> BuscaTodasApenasComInfosBasicas()
         {
-            return contexto.Dinamicas.Include(d => d.Resumo).ToList();
+            return contexto.Dinamicas.Include(d => d.Resumo).Where(d => d.Arquivada == false).ToList();
         }
 
         public void Edita(Dinamica dinamica)
         {
             contexto.Dinamicas.Update(dinamica);
+            contexto.SaveChanges();
+        }
+
+        public void Arquivar(int id)
+        {
+            Dinamica dinamica = contexto.Dinamicas.Find(id);
+            dinamica.Arquivada = true;
             contexto.SaveChanges();
         }
     }

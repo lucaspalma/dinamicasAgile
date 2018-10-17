@@ -19,10 +19,13 @@ namespace dinamicasAgile.Models
 
         public virtual IList<Referencia> Referencias { get; set; }
 
+        public bool Arquivada { get; set; } 
+
         public Dinamica()
         {
             this.Exemplos = new List<Exemplo>();
             this.Referencias = new List<Referencia>();
+            this.Arquivada = false;
         }
     }
 }

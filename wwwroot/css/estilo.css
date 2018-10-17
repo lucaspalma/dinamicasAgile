@@ -14,20 +14,27 @@
 	margin: 0;
 	text-align: center;
 }
-.dinamica-editar {
-	color: #D2D7D3;
-	font-size: 35px;
+.dinamica-acoes {
 	position: absolute;
 	right: 100px;
 	top: 25px;
+
+}
+.dinamica-editar,
+.dinamica-arquivar {
+	color: #D2D7D3;
+	font-size: 35px;
 }
 
 .dinamica-editar:hover,
-.dinamica-editar:focus {
+.dinamica-editar:focus,
+.dinamica-arquivar:hover,
+.dinamica-arquivar:focus {
     text-decoration: none;
 }
 
-.dinamica-editar:hover {
+.dinamica-editar:hover,
+.dinamica-arquivar:hover  {
     color: #ABB7B7;
 }
 .dinamica-resumo {
@@ -168,21 +175,28 @@
 	vertical-align: text-top;
 }
 
-@media only screen and (max-width: 710px) {
-	.dinamica-editar {
-		font-size: 25px;
+@media only screen and (max-width: 950px) {
+	.dinamica-acoes {
 		right: 50px;
+	}
+	.dinamica-editar,
+	.dinamica-arquivar {
+		font-size: 20px;
 	}
 }
 @media only screen and (max-width: 600px) {
-	.dinamica-editar {
-		font-size: 20px;
+	.dinamica-acoes {
 		right: 25px;
+		top: 10px;
+	}
+	.dinamica-editar
+	.dinamica-arquivar {
+		font-size: 20px;
 	}
    .dinamica-titulo {
 		font-size: 25px;
 		height: 100px;
-		line-height: 100px;
+		line-height: 115px;
    }
    .dinamica-fluxo_basico,
    .dinamica-exemplo,

@@ -47,5 +47,9 @@ namespace dinamicasAgile.Controllers
             return View(dinamica);
         }
 
+        public IActionResult Arquivar(int id) {
+            dinamicaDao.Arquivar(id);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
