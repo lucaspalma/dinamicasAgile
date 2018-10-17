@@ -17,12 +17,14 @@ namespace dinamicasAgile
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment hostEnvironment)
         {
             Configuration = configuration;
+            HostEnvironment = hostEnvironment;
         }
 
         public IConfiguration Configuration { get; }
+        public IHostingEnvironment HostEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -34,8 +36,20 @@ namespace dinamicasAgile
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            string connectionString = "";
+            if(HostEnvironment.IsDevelopment()) {
+                connectionString = Configuration.GetConnectionString("DefaultConnection");
+            } else {
+                
+                string clearDbUrl = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
+                clearDbUrl.Replace("//", "");
+                char[] delimiterChars = { '/', ':', '@', '?' };
+                string[] strConn = clearDbUrl.Split(delimiterChars).Where(x => !string.IsNullOrEmpty(x)).ToArray();
+                connectionString = "server="+strConn[3]+";port=3306;database="+strConn[4]+";uid="+strConn[1]+";password="+strConn[2]+";";
+            }
             services.AddDbContext<DinamicaContext>(options =>
-                    options.UseLazyLoadingProxies().UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+                    options.UseLazyLoadingProxies().UseMySql(connectionString));
+
 
             services.AddTransient<DinamicaDao>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
