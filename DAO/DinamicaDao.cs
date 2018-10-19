@@ -27,6 +27,13 @@ namespace dinamicasAgile.DAO
             return contexto.Dinamicas.Find(id);
         }
 
+        public void CadastraExemplo(int idDinamica, Exemplo exemplo)
+        {
+            Dinamica dinamica = contexto.Dinamicas.Find(idDinamica);
+            dinamica.Exemplos.Add(exemplo);
+            contexto.SaveChanges();
+        }
+
         public IList<Dinamica> BuscaTodasApenasComInfosBasicas()
         {
             return contexto.Dinamicas.Include(d => d.Resumo).Where(d => d.Arquivada == false).ToList();

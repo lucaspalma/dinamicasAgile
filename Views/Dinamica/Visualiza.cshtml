@@ -11,7 +11,7 @@
 	<link href="~/css/estilo.css" rel="stylesheet">
 </head>
 <body>
-	<div class="dinamica">
+	<div class="dinamica" data-id="@Model.Id">
 		<div class="dinamica-acoes">
 			<a asp-action="Edita" asp-controller="Dinamica" asp-route-id="@Model.Id" class="glyphicon glyphicon-edit dinamica-editar" title="Editar"></a>
 			<a asp-action="Arquivar" asp-controller="Dinamica" asp-route-id="@Model.Id" class="glyphicon glyphicon-trash dinamica-arquivar" title="Arquivar"></a>
@@ -62,43 +62,10 @@
 		</div>
 		<div class="dinamica-exemplo">
 			<a class="exemplo-novo">Novo exemplo</a>
-
-			<div class="exemplo-resumo">
-
-                @if(Model.Exemplos[0].Avaliacao == "positiva") {
-                    <span class="exemplo-resumo-avaliacao --positiva glyphicon glyphicon-ok-sign"></span>		
-	            } else if(Model.Exemplos[0].Avaliacao == "neutra") {
-                    <span class="exemplo-resumo-avaliacao --neutra glyphicon glyphicon-minus-sign"></span>		
-	            } else if(Model.Exemplos[0].Avaliacao == "negativa") {
-		            <span class="exemplo-resumo-avaliacao --negativa glyphicon glyphicon-remove-sign"></span>		
-                }
-
-				<span class="exemplo-resumo-quem" data-campo="quem">
-                    @Model.Exemplos[0].Participante
-				</span>
-				<span class="exemplo-resumo-tempo" data-campo="tempo">
-					<div class="glyphicon glyphicon-time"></div>
-                    @Model.Exemplos[0].Tempo
-				</span>
-			</div>
-			<div class="exemplo-descricao">
-				<span class="exemplo-descricao-info --contexto" data-campo="contexto">
-					<h2 class="descricao-info-titulo">Contexto e características</h2>
-                    @Model.Exemplos[0].Contexto
-				</span>
-				<span class="exemplo-descricao-info --motivo" data-campo="motivo">
-					<h2 class="descricao-info-titulo">Motivo</h2>
-                    @Model.Exemplos[0].Motivo
-				</span>
-				<span class="exemplo-descricao-info --metrica" data-campo="metrica">
-					<h2 class="descricao-info-titulo">Formato de verificação</h2>
-                    @Model.Exemplos[0].Metrica
-				</span>			
-				<span class="exemplo-descricao-info --observacao" data-campo="observacao">
-					<h2 class="descricao-info-titulo">Observação</h2>
-                    @Model.Exemplos[0].Observacao
-				</span>
-			</div>
+			@foreach (Exemplo exemplo in Model.Exemplos)
+			{
+				@Html.Partial("_Exemplo", exemplo)
+			}
 		</div>
 		<div class="dinamica-referencias">
 			<h2 class="dinamica-referencias-titulo">
