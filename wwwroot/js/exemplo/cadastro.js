@@ -50,7 +50,7 @@ botaoNovoExemplo.addEventListener("click", () => {
                     Object.keys(validacoes).forEach(function(campoValidado){
                         
                         const campoErro = document.querySelector(`.validacao-msg[data-valmsg-for="${campoValidado}"]`);
-                        campoErro.textContent = validacoes[campoValidado];
+                        campoErro.textContent = validacoes[campoValidado].toString().split(",")[0];
                         campoErro.classList.remove("field-validation-valid");
                         campoErro.classList.add("field-validation-error");
                         campoErro.closest(".validado").classList.add("--erro");

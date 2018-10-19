@@ -160,4 +160,7 @@ body {
         right: 30px;
         top: 15px;
     }
+    .field-validation-error{
+        font-size: 9px;
+    }
 }
