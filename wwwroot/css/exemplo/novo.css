@@ -34,7 +34,7 @@ body {
 .formulario-exemplo {
     display: block;
     background: rgb(93, 63, 106);
-    padding: 15px 30px 82px;
+    padding: 30px 30px 82px;
 }
 
 .exemplo-titulo {
@@ -94,4 +94,18 @@ body {
 .exemplo-add:hover {
     background-color: #e958a5;
     border-color: #e958a5;
+}
+
+.exemplo-fechar {
+    color: #F22613;
+    font-size: 16px;
+    position: absolute;
+    right: 115px;
+    text-decoration: none;
+    top: 40px;
+}
+.exemplo-fechar:hover {
+    color: #CF000F;
+    cursor: pointer;
+    text-decoration: none;
 }

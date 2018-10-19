@@ -2,11 +2,21 @@
 const botaoNovoExemplo = document.querySelector(".exemplo-novo");
 botaoNovoExemplo.addEventListener("click", () => {
     doGet("/Exemplo/FormNovo", (resposta) => {
+        let botaoSair = document.createElement('a');
+        botaoSair.classList.add("glyphicon");
+        botaoSair.classList.add("glyphicon-remove");
+        botaoSair.classList.add("exemplo-fechar");
+        botaoSair.addEventListener("click", function() {
+            document.querySelector(".novo-exemplo").remove();
+        });
         
         let areaNovoExemplo = document.createElement('div');
         areaNovoExemplo.classList.add("novo-exemplo");
         areaNovoExemplo.innerHTML = resposta;
+        areaNovoExemplo.appendChild(botaoSair);
         document.body.appendChild(areaNovoExemplo);
+
+
         const botaoCriaExemplo = document.querySelector(".exemplo-add");
         botaoCriaExemplo.addEventListener("click", (botao) => {
             
