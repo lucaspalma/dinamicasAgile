@@ -10,6 +10,13 @@ botaoNovoExemplo.addEventListener("click", () => {
         const botaoCriaExemplo = document.querySelector(".exemplo-add");
         botaoCriaExemplo.addEventListener("click", (botao) => {
             
+            document.querySelectorAll(".field-validation-error").forEach(campo => {
+                campo.textContent = "";
+                campo.classList.add("field-validation-valid");
+                campo.classList.remove("field-validation-error");
+                campo.closest(".validado").classList.remove("--erro");
+            });
+            
             var novoExemplo = {
                 avaliacao : document.querySelector(".questao-resposta[name='Avaliacao']").value,
                 participante : document.querySelector(".questao-resposta[name='Participante']").value,
@@ -28,7 +35,17 @@ botaoNovoExemplo.addEventListener("click", () => {
                 document.querySelector(".novo-exemplo").remove();
                 
             }, (error) => {
-                console.log(error)
+                if(error.status === 400) {
+                    const validacoes = JSON.parse(error.responseText);
+                    Object.keys(validacoes).forEach(function(campoValidado){
+                        
+                        const campoErro = document.querySelector(`.validacao-msg[data-valmsg-for="${campoValidado}"]`);
+                        campoErro.textContent = validacoes[campoValidado];
+                        campoErro.classList.remove("field-validation-valid");
+                        campoErro.classList.add("field-validation-error");
+                        campoErro.closest(".validado").classList.add("--erro");
+                    });
+                }
             });
         });
     });

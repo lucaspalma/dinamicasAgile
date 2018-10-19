@@ -10,27 +10,27 @@
                 <option value="neutra">Mais ou menos, mais ou menos</option>
                 <option value="negativa">Vixe, deu muito ruim</option>
             </select>
-            <span asp-validation-for="Avaliacao"></span>
+            <span asp-validation-for="Avaliacao" class="validacao-msg"></span>
         </label>
         <label asp-for="Participante" class="questao validado">
             <span class="questao-pergunta">Quem facilitou a dinâmica? E qual time que participou?*</span>
             <input asp-for="Participante" class="info questao-resposta">
-            <span asp-validation-for="Participante"></span>
+            <span asp-validation-for="Participante" class="validacao-msg"></span>
         </label>
         <label asp-for="Tempo" class="questao validado">
             <span class="questao-pergunta">Quanto tempo levou?*</span>
             <input asp-for="Tempo" class="info questao-resposta">
-            <span asp-validation-for="Tempo"></span>
+            <span asp-validation-for="Tempo" class="validacao-msg"></span>
         </label>
         <label asp-for="Contexto" class="questao validado">
             <span class="questao-pergunta">Quais os contextos e características do time em que esta dinâmica foi aplicada?*</span>
             <textarea asp-for="Contexto" class="info questao-resposta"></textarea>
-            <span asp-validation-for="Contexto"></span>
+            <span asp-validation-for="Contexto" class="validacao-msg"></span>
         </label>
         <label asp-for="Motivo" class="questao validado">
             <span class="questao-pergunta">Qual a razão pela qual você usou desta dinâmica?*</span>
             <textarea asp-for="Motivo" class="info questao-resposta"></textarea>
-            <span asp-validation-for="Motivo"></span>
+            <span asp-validation-for="Motivo" class="validacao-msg"></span>
         </label>
         <label asp-for="Metrica" class="questao validado">
             <span class="questao-pergunta">Como que você verificou o impacto desta dinâmica no time?</span>
@@ -40,7 +40,7 @@
         <label asp-for="Observacao" class="questao validado">
             <span class="questao-pergunta">Coloque aqui alguma observação de algo que você ache relevante</span>
             <textarea asp-for="Observacao" class="info questao-resposta"></textarea>
-            <span asp-validation-for="Observacao"></span>
+            <span asp-validation-for="Observacao" class="validacao-msg"></span>
         </label>
     </div>
     <button class="exemplo-add">Adicionar</button>

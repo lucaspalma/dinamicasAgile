@@ -1,3 +1,21 @@
+.field-validation-error{
+    font-size: 12px;
+    float: right;
+}
+.--erro {
+    color: #F22613 !important;
+    margin-bottom: 25px;
+}
+li.--erro {
+    margin-bottom: 30px;
+}
+.--erro input,
+.--erro textarea {
+    color: white !important;
+    background-color: #F22613 !important;
+    border: 1px solid #F22613 !important;
+}
+
 body {
     overflow:hidden;
 }
