@@ -5,6 +5,11 @@
 O sistema está hospedado no heroku e você pode acessá-lo em
 <https://easy-dinamicas.herokuapp.com/>.
 
+### Deploy
+
+O deploy no Heroku é feito de forma automática a partir dos commits enviados
+para a master.
+
 ## Pré-requisitos
 
 1. .NET Core 2.1 <https://www.microsoft.com/net/download/dotnet-core/2.1>
