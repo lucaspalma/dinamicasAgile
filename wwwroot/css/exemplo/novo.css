@@ -109,3 +109,55 @@ body {
     cursor: pointer;
     text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .novo-exemplo {
+        padding: 5px 15px;
+    }
+
+    .formulario-exemplo {
+        padding: 25px 5px;
+    }
+
+	.exemplo-titulo{
+        font-size: 14px;
+        text-align: center;
+	}
+
+	.exemplo-questionario {
+		padding: 10px;
+	}
+	.exemplo-questionario .questao.--avaliacao {
+		display: block;
+	}
+
+	.exemplo-questionario .questao {
+		margin-bottom: 15px;
+	}
+
+	.exemplo-questionario .questao .questao-pergunta {
+		display: block;
+		font-size: 12px;
+	} 
+
+	.exemplo-questionario .questao .questao-resposta {
+		font-size: 12px;
+		padding: 0px;
+		width: 100%;
+	}
+
+	.exemplo-questionario .questao textarea.questao-resposta {
+		height: 100px;
+    }
+    
+    .exemplo-add {
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+
+    .exemplo-fechar {
+        right: 30px;
+        top: 15px;
+    }
+}
