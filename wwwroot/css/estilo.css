@@ -176,6 +176,32 @@
 	vertical-align: text-top;
 }
 
+.exemplo-novo {
+    color: #003171;
+    display: block;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.exemplo-novo:hover,
+.exemplo-novo:focus {
+    text-decoration: none;
+}
+
+.exemplo-novo:hover {
+	color: #1F4788;
+	cursor: pointer;
+}
+
+.novo-icone {
+	font-size: 25px;
+	margin-right: 11px;
+    vertical-align: sub;
+}
+
 @media only screen and (max-width: 950px) {
 	.dinamica-acoes {
 		right: 50px;
@@ -232,4 +258,14 @@
    .dinamica-referencias {
 	   font-size: 12px;
    }
+
+   .exemplo-novo {
+	   font-size: 17px;
+	}
+
+	.novo-icone {
+		font-size: 20px;
+		margin-right: 0px;
+	}
+
 }

@@ -61,7 +61,10 @@
 			</ol>
 		</div>
 		<div class="dinamica-exemplo">
-			<a class="exemplo-novo">Novo exemplo</a>
+			<a class="exemplo-novo">
+				<span class="novo-icone glyphicon glyphicon-plus-sign"></span>
+				Novo exemplo
+			</a>
 			@foreach (Exemplo exemplo in Model.Exemplos)
 			{
 				@Html.Partial("_Exemplo", exemplo)
