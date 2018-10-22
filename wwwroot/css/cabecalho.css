@@ -1,22 +1,22 @@
 .cabecalho {
     background-color: 0 3px 12px rgba(27,31,35,0.15);
     display: block;
-    height: 30px;
+    height: 38px;
 }
 
 .cabecalho-titulo {
     color: #2a0b2a;
     font-family: 'Mali', sans-serif;
-    font-size: 15px;
-    height: 30px;
-    line-height: 30px;
+    font-size: 20px;
+    height: 38px;
+    line-height: 38px;
     padding-left: 25px;
 }
 
 .cabecalho-menu {
     color: #2a0b2a;
-    height: 35px;
-    line-height: 35px;
+    height: 38px;
+    line-height: 38px;
     position: absolute;
     right: 25px;
     top: 0;
@@ -33,7 +33,12 @@
 
 #menuAtivo:checked + .menu-links {
     display: block;
-    background-color: white;
+    background-color: #ECECEC;
+}
+
+.menu-icone {
+    font-size: 20px;
+    top: 5px;
 }
 
 .menu-links {
