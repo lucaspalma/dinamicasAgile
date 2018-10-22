@@ -1,50 +1,39 @@
 ﻿@model IList<Dinamica>
-<html>
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="~/css/reset.css" rel="stylesheet">	
+@section Css {	
 	<link href="~/css/home.css" rel="stylesheet">
-</head>
-<body>
-	<div class="lista-dinamicas">
-        <a asp-action="Nova" asp-controller="Dinamica" class="cadastro" draggable="false">
-            <span class="cadastro-icone glyphicon glyphicon-plus-sign"></span>
-            Nova dinâmica
+}
+<div class="lista-dinamicas">
+    <a asp-action="Nova" asp-controller="Dinamica" class="cadastro" draggable="false">
+        <span class="cadastro-icone glyphicon glyphicon-plus-sign"></span>
+        Nova dinâmica
+    </a>
+    @foreach (Dinamica dinamica in Model)
+    {    
+        <a asp-action="Visualiza" asp-controller="Dinamica" asp-route-id="@dinamica.Id" class="dinamica" draggable="false">
+            <h1 class="dinamica-titulo">
+                @dinamica.Resumo.Titulo
+            </h1>
+            <span class="dinamica-info --duracao">
+                <h2 class="dinamica-info-titulo"> 
+                    <div class="glyphicon glyphicon-hourglass"></div>
+                    Duração: 
+                </h2>
+                @dinamica.Resumo.Duracao
+            </span>
+            <span class="dinamica-info --tipo">
+                <h2 class="dinamica-info-titulo">
+                    <div class=" glyphicon glyphicon-tag "></div>
+                    Tipo:
+                </h2>
+                @dinamica.Resumo.Tipo
+            </span>
+            <span class="dinamica-info --proposito">
+                <h2 class="dinamica-info-titulo --proposito_titulo"> 
+                    <div class="glyphicon glyphicon-screenshot"></div>
+                    Proposito
+                </h2>
+                @dinamica.Resumo.Proposito
+            </span>
         </a>
-        @foreach (Dinamica dinamica in Model)
-        {    
-            <a asp-action="Visualiza" asp-controller="Dinamica" asp-route-id="@dinamica.Id" class="dinamica" draggable="false">
-                <h1 class="dinamica-titulo">
-                    @dinamica.Resumo.Titulo
-                </h1>
-                <span class="dinamica-info --duracao">
-                    <h2 class="dinamica-info-titulo"> 
-                        <div class="glyphicon glyphicon-hourglass"></div>
-                        Duração: 
-                    </h2>
-                    @dinamica.Resumo.Duracao
-                </span>
-                <span class="dinamica-info --tipo">
-                    <h2 class="dinamica-info-titulo">
-                        <div class=" glyphicon glyphicon-tag "></div>
-                        Tipo:
-                    </h2>
-                    @dinamica.Resumo.Tipo
-                </span>
-                <span class="dinamica-info --proposito">
-                    <h2 class="dinamica-info-titulo --proposito_titulo"> 
-                        <div class="glyphicon glyphicon-screenshot"></div>
-                        Proposito
-                    </h2>
-                    @dinamica.Resumo.Proposito
-                </span>
-            </a>
-        }
-    </div>
-</body>
-<html>
+    }
+</div>

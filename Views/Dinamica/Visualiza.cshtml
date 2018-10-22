@@ -1,90 +1,81 @@
 @model Dinamica
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="~/css/reset.css" rel="stylesheet">	
+@section Css {
 	<link href="~/css/estilo.css" rel="stylesheet">
-</head>
-<body>
-	<div class="dinamica" data-id="@Model.Id">
-		<div class="dinamica-acoes">
-			<a asp-action="Edita" asp-controller="Dinamica" asp-route-id="@Model.Id" class="glyphicon glyphicon-edit dinamica-editar" title="Editar"></a>
-			<a asp-action="Arquivar" asp-controller="Dinamica" asp-route-id="@Model.Id" class="glyphicon glyphicon-trash dinamica-arquivar" title="Arquivar"></a>
-		</div>
-		<h1 class="dinamica-titulo" data-campo="titulo">
-            @Model.Resumo.Titulo
-		</h1>
-		<div class="dinamica-resumo">		
-			<span class="resumo-info --tipo --par" data-campo="tipo">
-				<h2 class="resumo-info-titulo">
-					<div class=" glyphicon glyphicon-tag "></div>
-					Tipo
-				</h2>
-                @Model.Resumo.Tipo
-			</span>
-			<span class="resumo-info --proposito --impar" data-campo="proposito">
-				<h2 class="resumo-info-titulo">
-					<div class="glyphicon glyphicon-screenshot"></div>
-					Propósito
-				</h2>
-                @Model.Resumo.Proposito
-			</span>
-			<span class="resumo-info --duracao --par" data-campo="duracao">
-				<h2 class="resumo-info-titulo"> 
-					<div class="glyphicon glyphicon-hourglass"></div>
-					Duração
-				</h2>
-                @Model.Resumo.Duracao
-			</span>
-			<span class="resumo-info --material --impar" data-campo="material">
-				<h2 class="resumo-info-titulo">
-					<div class="glyphicon glyphicon-shopping-cart"></div>
-					Material
-				</h2>
-                @Model.Resumo.Material
-			</span>
-		</div>
-		<div class="dinamica-fluxo_basico">
-			<h2 class="fluxo_basico-titulo">Fluxo</h2>
-			<ol class="lista-fluxo">
-                @foreach (Passo passo in Model.Fluxo.Passos)
-                {
-                    <li>
-                        @passo.Descricao
-                    </li>
-                }
-			</ol>
-		</div>
-		<div class="dinamica-exemplo">
-			<a class="exemplo-novo">
-				<span class="novo-icone glyphicon glyphicon-plus-sign"></span>
-				Novo exemplo
-			</a>
-			@foreach (Exemplo exemplo in Model.Exemplos)
-			{
-				@Html.Partial("_Exemplo", exemplo)
-			}
-		</div>
-		<div class="dinamica-referencias">
-			<h2 class="dinamica-referencias-titulo">
-				<div class="glyphicon glyphicon-link"></div>
-				Links úteis
-			</h2>
-			<ul class="lista-links">
-                @foreach (Referencia referencia in Model.Referencias)
-                {
-                    <li>
-                        @referencia.Descricao
-                    </li>
-                }
-			</ul>
-		</div>
+}
+<div class="dinamica" data-id="@Model.Id">
+	<div class="dinamica-acoes">
+		<a asp-action="Edita" asp-controller="Dinamica" asp-route-id="@Model.Id" class="glyphicon glyphicon-edit dinamica-editar" title="Editar"></a>
+		<a asp-action="Arquivar" asp-controller="Dinamica" asp-route-id="@Model.Id" class="glyphicon glyphicon-trash dinamica-arquivar" title="Arquivar"></a>
 	</div>
+	<h1 class="dinamica-titulo" data-campo="titulo">
+		@Model.Resumo.Titulo
+	</h1>
+	<div class="dinamica-resumo">		
+		<span class="resumo-info --tipo --par" data-campo="tipo">
+			<h2 class="resumo-info-titulo">
+				<div class=" glyphicon glyphicon-tag "></div>
+				Tipo
+			</h2>
+			@Model.Resumo.Tipo
+		</span>
+		<span class="resumo-info --proposito --impar" data-campo="proposito">
+			<h2 class="resumo-info-titulo">
+				<div class="glyphicon glyphicon-screenshot"></div>
+				Propósito
+			</h2>
+			@Model.Resumo.Proposito
+		</span>
+		<span class="resumo-info --duracao --par" data-campo="duracao">
+			<h2 class="resumo-info-titulo"> 
+				<div class="glyphicon glyphicon-hourglass"></div>
+				Duração
+			</h2>
+			@Model.Resumo.Duracao
+		</span>
+		<span class="resumo-info --material --impar" data-campo="material">
+			<h2 class="resumo-info-titulo">
+				<div class="glyphicon glyphicon-shopping-cart"></div>
+				Material
+			</h2>
+			@Model.Resumo.Material
+		</span>
+	</div>
+	<div class="dinamica-fluxo_basico">
+		<h2 class="fluxo_basico-titulo">Fluxo</h2>
+		<ol class="lista-fluxo">
+			@foreach (Passo passo in Model.Fluxo.Passos)
+			{
+				<li>
+					@passo.Descricao
+				</li>
+			}
+		</ol>
+	</div>
+	<div class="dinamica-exemplo">
+		<a class="exemplo-novo">
+			<span class="novo-icone glyphicon glyphicon-plus-sign"></span>
+			Novo exemplo
+		</a>
+		@foreach (Exemplo exemplo in Model.Exemplos)
+		{
+			@Html.Partial("_Exemplo", exemplo)
+		}
+	</div>
+	<div class="dinamica-referencias">
+		<h2 class="dinamica-referencias-titulo">
+			<div class="glyphicon glyphicon-link"></div>
+			Links úteis
+		</h2>
+		<ul class="lista-links">
+			@foreach (Referencia referencia in Model.Referencias)
+			{
+				<li>
+					@referencia.Descricao
+				</li>
+			}
+		</ul>
+	</div>
+</div>
+@section Scripts {
 	<script src="~/js/exemplo/cadastro.js"></script>
-</body>
-<html>
+}

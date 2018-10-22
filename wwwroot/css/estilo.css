@@ -17,7 +17,7 @@
 .dinamica-acoes {
 	position: absolute;
 	right: 100px;
-	top: 25px;
+	top: 65px;
 
 }
 .dinamica-editar,
@@ -205,12 +205,13 @@
 @media only screen and (max-width: 950px) {
 	.dinamica-acoes {
 		right: 50px;
+		top: 55px;
 	}
 }
 @media only screen and (max-width: 600px) {
 	.dinamica-acoes {
 		right: 25px;
-		top: 10px;
+		top: 45px;
 	}
 	.dinamica-editar,
 	.dinamica-arquivar {

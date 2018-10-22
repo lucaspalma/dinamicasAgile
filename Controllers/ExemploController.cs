@@ -13,7 +13,7 @@ namespace dinamicasAgile.Controllers {
 
         [HttpGet]
         public IActionResult FormNovo () {
-            return View ();
+            return PartialView ();
         }
 
         [HttpPost]
@@ -21,7 +21,7 @@ namespace dinamicasAgile.Controllers {
         public IActionResult Adiciona (int idDinamica, [FromBody] Exemplo exemplo) {
             if (ModelState.IsValid) {
                 dinamicaDao.CadastraExemplo(idDinamica, exemplo);
-                return View (exemplo);
+                return PartialView (exemplo);
             }
             
             return BadRequest(ModelState);

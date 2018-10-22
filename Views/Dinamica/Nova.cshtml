@@ -1,135 +1,125 @@
 @model Dinamica
-
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="~/css/reset.css" rel="stylesheet">	
+@section Css {	
 	<link href="~/css/formulario.css" rel="stylesheet">
-</head>
-<body>
-	<form asp-controller="Dinamica" asp-action="Nova" method="post" class="gerador">
-		<h1 class="gerador-titulo">Divulgue a sua dinâmica</h1>
-		<label asp-for="Resumo.Titulo" class="gerador-info validado" >
-			Título da dinâmica *
-			<input asp-for="Resumo.Titulo" placeholder="Título da dinâmica" class="info">
-			<span asp-validation-for="Resumo.Titulo"></span>
-		</label>
-		<label asp-for="Resumo.Tipo" class="gerador-info validado">
-			Tipo *
-			<input asp-for="Resumo.Tipo" placeholder="Tipo" class="info" >
-			<span asp-validation-for="Resumo.Tipo"></span>
-		</label>
-		<label asp-for="Resumo.Proposito" class="gerador-info validado">
-			Propósito *
-			<textarea asp-for="Resumo.Proposito" placeholder="Propósito" rows="5" class="info"></textarea>
-			<span asp-validation-for="Resumo.Proposito"></span>
-		</label>
-		<label asp-for="Resumo.Duracao" class="gerador-info validado">
-			Duração *
-			<select asp-for="Resumo.Duracao" class="info">
-				<option value="Rapida">Muito rápida, na casa dos minutos</option>
-				<option value="Media">Leva algumas horas</option>
-				<option value="Demorada">Na casa dos dias</option>
-				<option value="Ferrou">Essa demora bastante</option>
-			</select>
-			<span asp-validation-for="Resumo.Duracao"></span>
-		</label>
-		<label asp-for="Resumo.Material" class="gerador-info validado">
-			Material
-			<textarea asp-for="Resumo.Material" placeholder="Material" rows="3" class="info"></textarea>
-			<span asp-validation-for="Resumo.Material"></span>
-		</label>
-		<label class="gerador-info">
-			Fluxo
-			<a onclick="addPasso()" class="clicavel">
-				<span class="clicavel-icone glyphicon glyphicon-plus-sign"></span>
-				<span class="clicavel-texto">Adicionar passo</span>
-			</a>
-			<ol class="lista-fluxo">
-				@{ int indexPasso = 0; }
-				@do
-				{
+}
+<form asp-controller="Dinamica" asp-action="Nova" method="post" class="gerador">
+	<h1 class="gerador-titulo">Divulgue a sua dinâmica</h1>
+	<label asp-for="Resumo.Titulo" class="gerador-info validado" >
+		Título da dinâmica *
+		<input asp-for="Resumo.Titulo" placeholder="Título da dinâmica" class="info">
+		<span asp-validation-for="Resumo.Titulo"></span>
+	</label>
+	<label asp-for="Resumo.Tipo" class="gerador-info validado">
+		Tipo *
+		<input asp-for="Resumo.Tipo" placeholder="Tipo" class="info" >
+		<span asp-validation-for="Resumo.Tipo"></span>
+	</label>
+	<label asp-for="Resumo.Proposito" class="gerador-info validado">
+		Propósito *
+		<textarea asp-for="Resumo.Proposito" placeholder="Propósito" rows="5" class="info"></textarea>
+		<span asp-validation-for="Resumo.Proposito"></span>
+	</label>
+	<label asp-for="Resumo.Duracao" class="gerador-info validado">
+		Duração *
+		<select asp-for="Resumo.Duracao" class="info">
+			<option value="Rapida">Muito rápida, na casa dos minutos</option>
+			<option value="Media">Leva algumas horas</option>
+			<option value="Demorada">Na casa dos dias</option>
+			<option value="Ferrou">Essa demora bastante</option>
+		</select>
+		<span asp-validation-for="Resumo.Duracao"></span>
+	</label>
+	<label asp-for="Resumo.Material" class="gerador-info validado">
+		Material
+		<textarea asp-for="Resumo.Material" placeholder="Material" rows="3" class="info"></textarea>
+		<span asp-validation-for="Resumo.Material"></span>
+	</label>
+	<label class="gerador-info">
+		Fluxo
+		<a onclick="addPasso()" class="clicavel">
+			<span class="clicavel-icone glyphicon glyphicon-plus-sign"></span>
+			<span class="clicavel-texto">Adicionar passo</span>
+		</a>
+		<ol class="lista-fluxo">
+			@{ int indexPasso = 0; }
+			@do
+			{
+				<li class="validado">
+					<textarea asp-for="Fluxo.Passos[indexPasso].Descricao" placeholder="Descreva o próximo passo" class="lista-item" rows="1" data-posicao="@indexPasso"></textarea>
+					<span asp-validation-for="Fluxo.Passos[indexPasso].Descricao"></span>
+				</li>
+				indexPasso++;
+			} while(Model != null && indexPasso < Model.Fluxo.Passos.Count());
+		</ol>
+	</label>
+	<label class="gerador-info">
+		Referências úteis
+		<a onclick="addLink()" class="clicavel">
+			<span class="clicavel-icone glyphicon glyphicon-plus-sign"></span>
+			<span class="clicavel-texto">Adicionar referencia</span>
+		</a>
+		<ul class="lista-links">
+			@if(Model != null && Model.Referencias.Count() > 0) {
+				@for(int indexRef = 0; indexRef < Model.Referencias.Count(); indexRef++) {
 					<li class="validado">
-						<textarea asp-for="Fluxo.Passos[indexPasso].Descricao" placeholder="Descreva o próximo passo" class="lista-item" rows="1" data-posicao="@indexPasso"></textarea>
-						<span asp-validation-for="Fluxo.Passos[indexPasso].Descricao"></span>
-					</li>
-					indexPasso++;
-				} while(Model != null && indexPasso < Model.Fluxo.Passos.Count());
-			</ol>
-		</label>
-		<label class="gerador-info">
-			Referências úteis
-			<a onclick="addLink()" class="clicavel">
-				<span class="clicavel-icone glyphicon glyphicon-plus-sign"></span>
-				<span class="clicavel-texto">Adicionar referencia</span>
-			</a>
-			<ul class="lista-links">
-				@if(Model != null && Model.Referencias.Count() > 0) {
-					@for(int indexRef = 0; indexRef < Model.Referencias.Count(); indexRef++) {
-						<li class="validado">
-							<input asp-for="Referencias[indexRef].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="@indexRef">
-							<span asp-validation-for="Referencias[indexRef].Descricao"></span>
-						</li>
-					}
-				} else {
-					<li class="validado">
-						<input name="Referencias[0].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="0">
+						<input asp-for="Referencias[indexRef].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="@indexRef">
+						<span asp-validation-for="Referencias[indexRef].Descricao"></span>
 					</li>
 				}
-			</ul>
-		</label>
-		<fieldset class="exemplo">
-			<legend class="exemplo-titulo">Exemplo</legend>
-			<div class="exemplo-questionario">
-				<label asp-for="Exemplos[0].Avaliacao" class="questao --avaliacao validado">
-					<span class="questao-pergunta">Como foi a experiência com esta dinâmica com este time?</span>
-					<select asp-for="Exemplos[0].Avaliacao" class="avaliacao questao-resposta">
-						<option value="positiva">Foi show</option>
-						<option value="neutra">Mais ou menos, mais ou menos</option>
-						<option value="negativa">Vixe, deu muito ruim</option>
-					</select>
-					<span asp-validation-for="Exemplos[0].Avaliacao"></span>
-				</label>
-				<label asp-for="Exemplos[0].Participante" class="questao validado">
-					<span class="questao-pergunta">Quem facilitou a dinâmica? E qual time que participou?*</span>
-					<input asp-for="Exemplos[0].Participante" class="info questao-resposta">
-					<span asp-validation-for="Exemplos[0].Participante"></span>
-				</label>
-				<label asp-for="Exemplos[0].Tempo" class="questao validado">
-					<span class="questao-pergunta">Quanto tempo levou?*</span>
-					<input asp-for="Exemplos[0].Tempo" class="info questao-resposta">
-					<span asp-validation-for="Exemplos[0].Tempo"></span>
-				</label>
-				<label asp-for="Exemplos[0].Contexto" class="questao validado">
-					<span class="questao-pergunta">Quais os contextos e características do time em que esta dinâmica foi aplicada?*</span>
-					<textarea asp-for="Exemplos[0].Contexto" class="info questao-resposta"></textarea>
-					<span asp-validation-for="Exemplos[0].Contexto"></span>
-				</label>
-				<label asp-for="Exemplos[0].Motivo" class="questao validado">
-					<span class="questao-pergunta">Qual a razão pela qual você usou desta dinâmica?*</span>
-					<textarea asp-for="Exemplos[0].Motivo" class="info questao-resposta"></textarea>
-					<span asp-validation-for="Exemplos[0].Motivo"></span>
-				</label>
-				<label asp-for="Exemplos[0].Metrica" class="questao validado">
-					<span class="questao-pergunta">Como que você verificou o impacto desta dinâmica no time?</span>
-					<textarea asp-for="Exemplos[0].Metrica" class="info questao-resposta"></textarea>
-					<span asp-validation-for="Exemplos[0].Metrica"></span>
-				</label>
-				<label asp-for="Exemplos[0].Observacao" class="questao validado">
-					<span class="questao-pergunta">Coloque aqui alguma observação de algo que você ache relevante</span>
-					<textarea asp-for="Exemplos[0].Observacao" class="info questao-resposta"></textarea>
-					<span asp-validation-for="Exemplos[0].Observacao"></span>
-				</label>
-			</div>
-		</fieldset>
-		<button class="botao-cadastro">Cadastrar</button>	
-	</form>
+			} else {
+				<li class="validado">
+					<input name="Referencias[0].Descricao" placeholder="Coloque alguma referência para consulta" class="lista-item" data-posicao="0">
+				</li>
+			}
+		</ul>
+	</label>
+	<fieldset class="exemplo">
+		<legend class="exemplo-titulo">Exemplo</legend>
+		<div class="exemplo-questionario">
+			<label asp-for="Exemplos[0].Avaliacao" class="questao --avaliacao validado">
+				<span class="questao-pergunta">Como foi a experiência com esta dinâmica com este time?</span>
+				<select asp-for="Exemplos[0].Avaliacao" class="avaliacao questao-resposta">
+					<option value="positiva">Foi show</option>
+					<option value="neutra">Mais ou menos, mais ou menos</option>
+					<option value="negativa">Vixe, deu muito ruim</option>
+				</select>
+				<span asp-validation-for="Exemplos[0].Avaliacao"></span>
+			</label>
+			<label asp-for="Exemplos[0].Participante" class="questao validado">
+				<span class="questao-pergunta">Quem facilitou a dinâmica? E qual time que participou?*</span>
+				<input asp-for="Exemplos[0].Participante" class="info questao-resposta">
+				<span asp-validation-for="Exemplos[0].Participante"></span>
+			</label>
+			<label asp-for="Exemplos[0].Tempo" class="questao validado">
+				<span class="questao-pergunta">Quanto tempo levou?*</span>
+				<input asp-for="Exemplos[0].Tempo" class="info questao-resposta">
+				<span asp-validation-for="Exemplos[0].Tempo"></span>
+			</label>
+			<label asp-for="Exemplos[0].Contexto" class="questao validado">
+				<span class="questao-pergunta">Quais os contextos e características do time em que esta dinâmica foi aplicada?*</span>
+				<textarea asp-for="Exemplos[0].Contexto" class="info questao-resposta"></textarea>
+				<span asp-validation-for="Exemplos[0].Contexto"></span>
+			</label>
+			<label asp-for="Exemplos[0].Motivo" class="questao validado">
+				<span class="questao-pergunta">Qual a razão pela qual você usou desta dinâmica?*</span>
+				<textarea asp-for="Exemplos[0].Motivo" class="info questao-resposta"></textarea>
+				<span asp-validation-for="Exemplos[0].Motivo"></span>
+			</label>
+			<label asp-for="Exemplos[0].Metrica" class="questao validado">
+				<span class="questao-pergunta">Como que você verificou o impacto desta dinâmica no time?</span>
+				<textarea asp-for="Exemplos[0].Metrica" class="info questao-resposta"></textarea>
+				<span asp-validation-for="Exemplos[0].Metrica"></span>
+			</label>
+			<label asp-for="Exemplos[0].Observacao" class="questao validado">
+				<span class="questao-pergunta">Coloque aqui alguma observação de algo que você ache relevante</span>
+				<textarea asp-for="Exemplos[0].Observacao" class="info questao-resposta"></textarea>
+				<span asp-validation-for="Exemplos[0].Observacao"></span>
+			</label>
+		</div>
+	</fieldset>
+	<button class="botao-cadastro">Cadastrar</button>	
+</form>
+@section Scripts {
     <script src="~/js/cadastro.js"></script>
 	<script src="~/js/validacao.js"></script>
-</body>
-<html>
+}
