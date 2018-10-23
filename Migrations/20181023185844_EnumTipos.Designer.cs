@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using dinamicasAgile.Banco;
 
 namespace dinamicasAgile.Migrations
 {
     [DbContext(typeof(DinamicaContext))]
-    partial class DinamicaContextModelSnapshot : ModelSnapshot
+    [Migration("20181023185844_EnumTipos")]
+    partial class EnumTipos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

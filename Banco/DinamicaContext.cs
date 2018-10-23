@@ -18,5 +18,16 @@ namespace dinamicasAgile.Banco
         public DbSet<Passo> Passos { get; set; }
         public DbSet<InformacoesBasicas> InformacoesBasicas { get; set; }
         public DbSet<Referencia> Referencias { get; set; }
+        public DbSet<TipoDinamica> TiposDinamicas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<TipoDinamica>()
+                .Property(e => e.Tipo)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (Tipo) Enum.Parse(typeof(Tipo), v));
+        }
     }
 }

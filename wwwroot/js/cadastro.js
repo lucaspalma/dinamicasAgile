@@ -14,6 +14,12 @@ formulario.addEventListener("submit", () => {
 			index++
 		}
 	})
+
+	let posicaoTipo = 0;
+	document.querySelectorAll(".info-tipo:checked").forEach(tipo => {
+		tipo.name = tipo.name.replace("[]", `[${posicaoTipo}]`)
+		posicaoTipo++
+	})
 	return true
 })
 
