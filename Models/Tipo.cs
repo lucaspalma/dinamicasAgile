@@ -32,7 +32,12 @@ namespace dinamicasAgile.Models
         Review = 8,
 
         [Display(Name="Refinamento")]
-        Refinamento = 9
+        Refinamento = 9,
 
+        [Display(Name="Warm up / Checkin")]
+        Checkin = 10,
+
+    [   Display(Name="Checkout")]
+        Checkout = 11
     }
 }
