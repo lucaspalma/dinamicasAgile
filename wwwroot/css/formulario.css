@@ -71,10 +71,25 @@ li.--erro {
 .info-tipo:not(:checked) + .gerador-info_tipo .tipo_deschecado {
 	display: initial;
 }
+.info-tipo:checked + .gerador-info_tipo {
+	color: #e958a5;
+}
 .info-tipo:checked + .gerador-info_tipo .tipo_checado {
 	display: initial;
 }
-
+.lista-tipos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-top: 10px;
+	width: 100%;
+}
+.gerador-info_tipo {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	margin-bottom: 10px;
+	width: 25%;
+}
 
 .lista-fluxo,
 .lista-links {
@@ -164,7 +179,17 @@ li.--erro {
 		height: 50px;
 		line-height: 50px;
 	}
+	.gerador-info_tipo {
+		font-size: 15px;
+		width: 33%;
+	}
 
+}
+
+@media only screen and (max-width: 660px) {
+	.gerador-info_tipo {
+		width: 50%;
+	}
 }
 
 @media only screen and (max-width: 600px) {
@@ -192,6 +217,10 @@ li.--erro {
 
 	.gerador-info .lista-fluxo .lista-item {
 		height: 100px;;
+	}
+
+	.gerador-info_tipo {
+		font-size: 12px;
 	}
 
 	.field-validation-error {
