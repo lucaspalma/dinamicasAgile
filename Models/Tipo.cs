@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace dinamicasAgile.Models
 {
-    public enum TipoDinamica : int
+    public enum Tipo : int
     {
         [Display(Name="Ice breaker")]
         IceBreaker = 0,

@@ -20,9 +20,6 @@ namespace dinamicasAgile.Models
         [MinLength(2, ErrorMessage="O propósito precisa conter pelo menos {1} caracteres")]
         public string Proposito { get; set; }
 
-        [Required(ErrorMessage="O tipo é obrigatório")]
-        public string Tipo { get; set; }
-
-        public IList<TipoDinamica> Tipos {get;set;}
+        public IList<Tipo> Tipos {get;set;}
     }
 }

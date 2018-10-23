@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
 using dinamicasAgile.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace dinamicasAgile.Banco
 {

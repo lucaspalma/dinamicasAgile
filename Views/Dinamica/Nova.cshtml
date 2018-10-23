@@ -13,7 +13,7 @@
 	<div class="gerador-info">
 		Tipo *
 		<div class="lista-tipos">
-			@foreach (TipoDinamica tipo in Enum.GetValues(typeof(TipoDinamica)))
+			@foreach (Tipo tipo in Enum.GetValues(typeof(Tipo)))
 			{
 				<input type="checkbox" name="Resumo.Tipos[@tipo]" value="@tipo" id="Resumo_Tipos_@tipo" class="info-tipo">
 				<label for="Resumo_Tipos_@tipo" class="gerador-info_tipo">
