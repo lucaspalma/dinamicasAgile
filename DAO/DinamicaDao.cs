@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using dinamicasAgile.Banco;
 using dinamicasAgile.Models;
 using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 
 namespace dinamicasAgile.DAO
 {
@@ -41,6 +43,7 @@ namespace dinamicasAgile.DAO
 
         public void Edita(Dinamica dinamica)
         {
+            contexto.Database.ExecuteSqlCommand("delete from TiposDinamicas where InformacoesBasicasId = @resumoId", new MySqlParameter("resumoId", dinamica.Resumo.Id));
             contexto.Dinamicas.Update(dinamica);
             contexto.SaveChanges();
         }

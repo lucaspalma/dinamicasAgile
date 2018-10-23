@@ -16,7 +16,10 @@
 			
 			@foreach (Tipo tipo in Enum.GetValues(typeof(Tipo)))
 			{
-				<input type="checkbox" name="Resumo.Tipos[].Tipo" value="@tipo" id="Resumo_Tipos_@tipo" class="info-tipo">
+				
+				<input type="checkbox" name="Resumo.Tipos[].Tipo" value="@tipo" id="Resumo_Tipos_@tipo" class="info-tipo" 
+				checked="@(Model != null && Model.Resumo != null && Model.Resumo.TemTipo(tipo))">	
+				
 				<label for="Resumo_Tipos_@tipo" class="gerador-info_tipo">
 					<span class="glyphicon glyphicon-unchecked tipo_deschecado"></span>
 					<span class="glyphicon glyphicon-check tipo_checado"></span>

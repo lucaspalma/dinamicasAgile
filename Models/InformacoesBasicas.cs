@@ -44,5 +44,14 @@ namespace dinamicasAgile.Models
             }
             return tipos.ToString();
         }
+
+        public bool TemTipo(Tipo tipo) {
+            foreach(TipoDinamica tipoDinamica in Tipos) {
+                if(tipoDinamica.Tipo.Equals(tipo)) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
