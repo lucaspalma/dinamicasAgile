@@ -1,6 +1,6 @@
 @model Exemplo
 <div class="exemplo-questionario">
-    @if(Model != null && Model.Id != null) {
+    @if(Model != null && Model.Id != 0) {
         <input type="hidden" asp-for="Id">
     }
     <label asp-for="Avaliacao" class="questao --avaliacao validado">
