@@ -1,15 +1,34 @@
 ﻿@model IList<Dinamica>
 @section Css {	
 	<link href="~/css/home.css" rel="stylesheet">
+    <link href="~/css/filtro.css" rel="stylesheet">
 }
 <div class="lista-dinamicas">
+    <fieldset class="filtro-tipos">
+        <legend class="filtro-titulo">Filtro por tipo</legend>
+        <div class="filtro-lista">
+            @foreach (Tipo tipo in Enum.GetValues(typeof(Tipo)))
+            {
+                <input type="checkbox" value="@tipo.DisplayName()" id="Resumo_Tipos_@tipo" class="filtro-tipo">	
+                
+                <label for="Resumo_Tipos_@tipo" class="filtro-info">
+                    <span class="glyphicon glyphicon-unchecked tipo_deschecado"></span>
+                    <span class="glyphicon glyphicon-check tipo_checado"></span>
+                    @tipo.DisplayName()
+                </label>
+            }
+        </div>
+        <button class="filtro-botao">Filtrar</button>
+    </fieldset>
+ 
     <a asp-action="Nova" asp-controller="Dinamica" class="cadastro" draggable="false">
         <span class="cadastro-icone glyphicon glyphicon-plus-sign"></span>
         Nova dinâmica
     </a>
     @foreach (Dinamica dinamica in Model)
     {    
-        <a asp-action="Visualiza" asp-controller="Dinamica" asp-route-id="@dinamica.Id" class="dinamica" draggable="false">
+        <a asp-action="Visualiza" asp-controller="Dinamica" asp-route-id="@dinamica.Id" class="dinamica" draggable="false"
+            data-tipos="@dinamica.Resumo.TiposFormatados()">
             <h1 class="dinamica-titulo">
                 @dinamica.Resumo.Titulo
             </h1>
@@ -37,3 +56,6 @@
         </a>
     }
 </div>
+@section Scripts {
+    <script src="~/js/filtro.js"></script>
+}

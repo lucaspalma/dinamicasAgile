@@ -1,0 +1,41 @@
+.filtro-tipo {
+	display: none;
+}
+.filtro-titulo {
+    color: white;
+}
+.tipo_deschecado,
+.tipo_checado {
+	display: none;
+}
+.filtro-tipo:not(:checked) + .filtro-info .tipo_deschecado {
+	display: initial;
+}
+.filtro-tipo:checked + .filtro-info {
+	color: #e958a5;
+}
+.filtro-tipo:checked + .filtro-info .tipo_checado {
+	display: initial;
+}
+.filtro-lista {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-top: 10px;
+	width: 100%;
+}
+.filtro-info {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	margin-bottom: 10px;
+	width: 25%;
+}
+.filtro-botao {
+    color: white;
+    background-color: #e6258c;
+    font-size: 18px;
+    float: right;
+    padding: 8px 100px;
+    border: 2px solid #e6258c;
+    margin-top: 20px;
+}
