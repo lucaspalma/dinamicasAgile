@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using dinamicasAgile.Extensions;
 
 namespace dinamicasAgile.Models
 {
@@ -25,6 +29,20 @@ namespace dinamicasAgile.Models
         public InformacoesBasicas()
         {
             this.Tipos = new List<TipoDinamica>();
+        }
+
+        public string TiposFormatados() {
+            if(Tipos.Count() == 0) {
+                return "";
+            }
+            StringBuilder tipos = new StringBuilder();
+            string nomeTipo = Tipos[0].Tipo.DisplayName();
+            tipos.Append(nomeTipo);
+            for(int i = 1; i < Tipos.Count; i++) {
+                nomeTipo = Tipos[i].Tipo.DisplayName();
+                tipos.Append(", " + nomeTipo);
+            }
+            return tipos.ToString();
         }
     }
 }
