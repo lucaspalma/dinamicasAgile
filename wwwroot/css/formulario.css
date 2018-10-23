@@ -61,6 +61,21 @@ li.--erro {
 	min-width: 100%;
 	max-width: 100%;
 }
+.info-tipo{
+	display: none;
+}
+.tipo_deschecado,
+.tipo_checado {
+	display: none;
+}
+.info-tipo:not(:checked) + .gerador-info_tipo .tipo_deschecado {
+	display: initial;
+}
+.info-tipo:checked + .gerador-info_tipo .tipo_checado {
+	display: initial;
+}
+
+
 .lista-fluxo,
 .lista-links {
 	display: block;

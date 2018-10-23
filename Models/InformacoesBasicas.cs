@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace dinamicasAgile.Models
@@ -21,5 +22,7 @@ namespace dinamicasAgile.Models
 
         [Required(ErrorMessage="O tipo é obrigatório")]
         public string Tipo { get; set; }
+
+        public IList<TipoDinamica> Tipos {get;set;}
     }
 }

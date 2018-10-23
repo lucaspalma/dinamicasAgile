@@ -14,6 +14,16 @@
 		<input asp-for="Resumo.Tipo" placeholder="Tipo" class="info" >
 		<span asp-validation-for="Resumo.Tipo"></span>
 	</label>
+		@foreach (TipoDinamica tipo in Enum.GetValues(typeof(TipoDinamica)))
+		{
+			<input type="checkbox" name="Resumo.Tipos[@tipo]" value="@tipo" id="Resumo_Tipos_@tipo" class="info-tipo">
+			<label for="Resumo_Tipos_@tipo" class="gerador-info_tipo">
+				<span class="glyphicon glyphicon-unchecked tipo_deschecado"></span>
+				<span class="glyphicon glyphicon-check tipo_checado"></span>
+				@Html.DisplayFor(m => tipo)
+			</label>
+		}
+
 	<label asp-for="Resumo.Proposito" class="gerador-info validado">
 		Propósito *
 		<textarea asp-for="Resumo.Proposito" placeholder="Propósito" rows="5" class="info"></textarea>
