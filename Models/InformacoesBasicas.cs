@@ -24,6 +24,7 @@ namespace dinamicasAgile.Models
         [MinLength(2, ErrorMessage="O propósito precisa conter pelo menos {1} caracteres")]
         public string Proposito { get; set; }
 
+        [MinLength(1, ErrorMessage="Precisa de pelo menos um tipo")]
         public virtual IList<TipoDinamica> Tipos {get;set;}
 
         public InformacoesBasicas()

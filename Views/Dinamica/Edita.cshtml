@@ -11,7 +11,7 @@
 		<input asp-for="Resumo.Titulo" placeholder="Título da dinâmica" class="info">
 		<span asp-validation-for="Resumo.Titulo"></span>
 	</label>
-	<div class="gerador-info">
+	<div class="gerador-info validado">
 		Tipo *
 		<div class="lista-tipos">
 			@foreach (Tipo tipo in Enum.GetValues(typeof(Tipo)))
@@ -24,6 +24,7 @@
 				</label>
 			}
 		</div>
+		<span asp-validation-for="Resumo.Tipos"></span>
 	</div>
 	<label asp-for="Resumo.Proposito" class="gerador-info validado">
 		Propósito *
