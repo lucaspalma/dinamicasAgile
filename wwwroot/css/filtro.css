@@ -17,6 +17,22 @@
 .filtro-tipo:checked + .filtro-info .tipo_checado {
 	display: initial;
 }
+
+.filtro-menu.--esconde {
+	opacity: 0;
+	visibility: hidden;
+	margin-top: -205px;
+	transition: visibility 0.3s ease-out, opacity 0.3s ease-out, margin-top 0.7s ease-in;
+}
+.filtro-menu:not(.--esconde) {
+	opacity: 1;
+	visibility: initial;
+	margin-top: 0px;
+	transition: visibility 1s cubic-bezier(.54,0,0,.32), opacity 1s cubic-bezier(.54,0,0,.32) , margin-top 0.4s ease-out;
+}
+
+
+
 .filtro-lista {
 	display: flex;
 	flex-wrap: wrap;
@@ -38,4 +54,43 @@
     padding: 8px 100px;
     border: 2px solid #e6258c;
     margin-top: 20px;
+}
+
+@media only screen and (max-width: 980px) {
+
+	.filtro-info {
+		font-size: 15px;
+		width: 33%;
+	}
+
+}
+
+@media only screen and (max-width: 660px) {
+	.lista-dinamicas {
+		padding: 45px 20px;
+	}
+	.filtro-titulo {
+		font-size: 16px;
+	}
+	.filtro-botao {
+		font-size: 16px;
+		padding: 5px 70px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.filtro-info {
+		font-size: 12px;
+		width: 50%;
+	}
+
+	.filtro-botao {
+		display: block;
+		float: none;
+		margin: 0 auto;
+	}
+
+	.filtro-tipos {
+		margin-bottom: 18px;
+	}
 }

@@ -12,3 +12,10 @@ document.querySelector(".filtro-botao").addEventListener("click", () =>{
         })
     })
 });
+
+document.querySelector(".filtro-mostra").addEventListener("click", function() {
+    document.querySelector(".filtro-menu").classList.toggle("--esconde");
+    let iconeFiltro = document.querySelector(".filtro-mostra");
+    iconeFiltro.classList.toggle("glyphicon-plus-sign");
+    iconeFiltro.classList.toggle("glyphicon-minus-sign");
+})
